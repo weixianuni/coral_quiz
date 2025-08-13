@@ -5,24 +5,50 @@ body {
     margin: 0;
     flex-direction: column;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 /*
     background-image: url('assets/coral_background.jpg');
     background-size: cover;      
     background-position: center; 
     background-repeat: no-repeat; 
 */
+  
+}
 
+#quiz-container {
+    flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
 
 #main-text {
     font-size: 5em;
+    
     /* font-family: ; */
     color: aquamarine;
 }
 
+#landing-screen,
+#options-container,
+#result-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-section {
+    font-size: 2em;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* 
 #landing-screen {
     display: flex;
     flex-direction: column;
@@ -43,7 +69,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2em;
-}
+} */
 
 .option-btn, #restart-btn{
   background-color: #ffe6e6; /* soft coral pink */
@@ -55,8 +81,11 @@ body {
   color: #333;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  width: 20em;
+  width: 90%; /* fills nicely on mobile */
+  max-width: 20em; /* doesn't get too wide on desktop */
+  margin: 0.5rem auto
 }
+
 #start-btn {
     background-color: #ffe6e6; /* soft coral pink */
     border: 2px solid #ff9999;
@@ -82,7 +111,7 @@ body {
 
 
 footer {
-    position:absolute;
+    /* position:absolute; */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -100,7 +129,7 @@ footer p {
 #question-image {
   display: block;       /* makes margin auto work */
   margin: 0 auto;       /* centers horizontally */
-  max-width: 80%;
+  max-width: 90%;
   height: auto;
   border-radius: 12px;
 }
@@ -108,4 +137,13 @@ footer p {
 
 #buffer-screen {
     font-size: 2em;
+}
+
+@media (max-width: 600px) {
+    #main-text {
+        font-size: 3em; /* larger on desktop */
+    }
+    #result-section {
+        font-size: 1.5em;
+    }
 }
