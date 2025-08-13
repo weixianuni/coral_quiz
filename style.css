@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color:sandybrown;
+    margin: 0;
+    flex-direction: column;
+    min-height: 100vh;
+/*
+    background-image: url('assets/coral_background.jpg');
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#main-text {
+    font-size: 5em;
+    /* font-family: ; */
+    color: aquamarine;
+}
+
+#landing-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.option-btn, #restart-btn{
+  background-color: #ffe6e6; /* soft coral pink */
+  border: 2px solid #ff9999;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 20em;
+}
+#start-btn {
+    background-color: #ffe6e6; /* soft coral pink */
+    border: 2px solid #ff9999;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.option-btn:hover, #start-btn:hover, #restart-btn:hover {
+  background-color: #ffcccc;
+  transform: translateY(-2px);
+}
+
+.option-btn:active, #start-btn:active, #restart-btn:active  {
+  background-color: #ffb3b3;
+  transform: translateY(0);
+}
+
+
+
+footer {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align:center;
+    font-size: 0.88rem;
+    color: #666;
+    padding: 8px 0;
+    background-color:sandybrown;
+}
+
+footer p {
+    margin: 0;
+}
+
+#question-image {
+  display: block;       /* makes margin auto work */
+  margin: 0 auto;       /* centers horizontally */
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+}
+
+
+#buffer-screen {
+    font-size: 2em;
+}
