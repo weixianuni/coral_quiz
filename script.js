@@ -214,6 +214,21 @@ function showResult() {
         "soft": "You are flexible and empathetic, flowing with change while maintaining your core values. You are the peaceful glue in any group."
     };
 
+    /*
+      const descriptions = {
+        "staghorn": "Ambitious Go-Getter",
+        "elkhorn": "Reliable Supporter",
+        "finger": "Friendly Networker",
+        "mushroom": "Independent Scholar",
+        "brain": "Analytical Thinker",
+        "carnation": "Visionary Idealist",
+        "sea fan": "Social Butterfly",
+        "sun": "Optimistic Motivator",
+        "sea whip": "Adventurous Spirit",
+        "organ pipe": "Organized Planner"
+      };
+    */
+
     resultImage.src = `assets/placeholder.jpeg`;
     resultImage.alt = coralType;
 
