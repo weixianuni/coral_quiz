@@ -6,14 +6,13 @@ const scores = {
     "branch": 0,
     "brain": 0,
     "mushroom": 0,
-    "staghorn": 0,
     "elkhorn": 0,
     "pillar": 0,
     "table": 0,
-    "cup": 0,
     "fire": 0,
     "soft": 0
   };
+  
 const startBtn = document.getElementById('start-btn');
 const landingScreen = document.getElementById('landing-screen');
 const questionSection = document.getElementById('question-section');
@@ -30,115 +29,108 @@ let currentQuestionIndex = 0;
 let answers = [];
 
 const questions = [
-    {
-      question: "You wake up as a tiny coral polyp drifting in the ocean. Where do you settle?",
-      options: [
-        { text: "On a strong rocky base", corals: ["brain", "pillar"] },
-        { text: "On a branch near the surface", corals: ["staghorn", "elkhorn"] },
-        { text: "On a wide, flat reef", corals: ["table", "cup"] },
-        { text: "Alone on sandy seabed", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "A school of fish swims by. How do you react?",
-      options: [
-        { text: "Offer shelter to as many as possible", corals: ["table", "branch"] },
-        { text: "Stay hidden and observe quietly", corals: ["brain", "soft"] },
-        { text: "Wave your branches to attract them", corals: ["elkhorn", "staghorn"] },
-        { text: "Let them pass — you prefer solitude", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "The tide is getting stronger. What’s your survival strategy?",
-      options: [
-        { text: "Hold fast and weather the storm", corals: ["pillar", "brain"] },
-        { text: "Bend and sway with the currents", corals: ["branch", "staghorn"] },
-        { text: "Hide in crevices to stay safe", corals: ["soft", "cup"] },
-        { text: "Defend yourself fiercely", corals: ["fire"] }
-      ]
-    },
-    {
-      question: "A diver approaches your reef. What do you do?",
-      options: [
-        { text: "Show off your beauty proudly", corals: ["fire", "cup"] },
-        { text: "Remain still, blending in", corals: ["brain", "pillar"] },
-        { text: "Wave gently to greet them", corals: ["branch", "soft"] },
-        { text: "Stay out of sight", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "Night falls over the reef. What’s your nighttime activity?",
-      options: [
-        { text: "Glow softly to attract plankton", corals: ["cup", "soft"] },
-        { text: "Rest and store energy", corals: ["pillar", "brain"] },
-        { text: "Hunt small prey with stingers", corals: ["fire"] },
-        { text: "Float free in the current", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "An algae bloom is threatening the reef. How do you respond?",
-      options: [
-        { text: "Team up with other corals to adapt", corals: ["branch", "table"] },
-        { text: "Rely on your own resilience", corals: ["brain", "pillar"] },
-        { text: "Use your toxins to fight back", corals: ["fire"] },
-        { text: "Move away to a cleaner spot", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "You spot a predator fish nearby. What’s your move?",
-      options: [
-        { text: "Protect smaller creatures around you", corals: ["elkhorn", "table"] },
-        { text: "Hide and hope it passes", corals: ["soft", "cup"] },
-        { text: "Fight with your stinging cells", corals: ["fire"] },
-        { text: "Detach and drift away", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "The sun is shining bright today. How do you use the energy?",
-      options: [
-        { text: "Grow upward quickly", corals: ["staghorn", "elkhorn"] },
-        { text: "Strengthen your base", corals: ["pillar", "brain"] },
-        { text: "Expand sideways to host more life", corals: ["table", "branch"] },
-        { text: "Absorb just enough and rest", corals: ["soft"] }
-      ]
-    },
-    {
-      question: "A current brings in new coral larvae. What’s your role?",
-      options: [
-        { text: "Mentor and protect them", corals: ["elkhorn", "brain"] },
-        { text: "Offer them a place to settle", corals: ["table", "branch"] },
-        { text: "Let them find their own way", corals: ["mushroom"] },
-        { text: "Compete to claim space first", corals: ["fire"] }
-      ]
-    },
-    {
-      question: "A storm has damaged part of your reef. What do you do?",
-      options: [
-        { text: "Rebuild stronger than before", corals: ["pillar", "elkhorn"] },
-        { text: "Quickly regrow branches", corals: ["staghorn", "branch"] },
-        { text: "Focus on healing slowly", corals: ["soft", "brain"] },
-        { text: "Move to a new location", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "The reef is quiet today. How do you spend your time?",
-      options: [
-        { text: "Chat with your coral neighbors", corals: ["branch", "table"] },
-        { text: "Meditate and think", corals: ["brain", "soft"] },
-        { text: "Patrol the area to keep it safe", corals: ["elkhorn", "fire"] },
-        { text: "Drift peacefully alone", corals: ["mushroom"] }
-      ]
-    },
-    {
-      question: "You’ve been chosen as the reef’s representative. How do you lead?",
-      options: [
-        { text: "With wisdom and strategy", corals: ["brain", "pillar"] },
-        { text: "By inspiring others with beauty", corals: ["cup", "soft"] }, // Note: "star" is not in your scores, remove or replace?
-        { text: "By acting decisively in danger", corals: ["fire", "elkhorn"] },
-        { text: "By helping everyone feel welcome", corals: ["table", "branch"] }
-      ]
-    }
-  ];
+  {
+    question: "1) A tourist in neon-pink flippers is river-dancing on fragile staghorn corals, humming 'Baby Shark.' What do you do?",
+    options: [
+      { text: "Tell them off politely, like a patient teacher.", corals: ["brain"] },
+      { text: "Ignore it, drifting away with zen detachment.", corals: ["mushroom"] },
+      { text: "Blast your dive horn and drag them out, shouting 'CORAL MURDERER!'", corals: ["fire"] },
+      { text: "Kindly show them how to float properly, turning them into a friend.", corals: ["branch"] }
+    ],
+    id: 1
+  },
+  {
+    question: "2) A giant plastic chair floats by like Poseidon's abandoned furniture. A turtle eyes it suspiciously. How do you react?",
+    options: [
+      { text: "Scoop it up silently and sit on it like an ocean monarch.", corals: ["pillar"] },
+      { text: "Drag it ashore and repaint it as funky art.", corals: ["soft"] },
+      { text: "Yell at the speedboat that tossed it, threatening to curse them with barnacles.", corals: ["fire"] },
+      { text: "Shrug and let the current take it.", corals: ["mushroom"] }
+    ],
+    id: 2
+  },
+  {
+    question: "3) At dinner, your uncle brags about shark fin soup, and your aunt sings about turtle egg omelettes.",
+    options: [
+      { text: "Calmly explain biodiversity with a PowerPoint on your phone.", corals: ["brain"] },
+      { text: "Slam the table and flip the soup dramatically.", corals: ["fire"] },
+      { text: "Offer them your plant-based 'mock turtle curry' instead.", corals: ["table"] },
+      { text: "Start a lively group debate and make everyone laugh, changing hearts with humor.", corals: ["branch"] }
+    ],
+    id: 3
+  },
+  {
+    question: "4) Your village is holding a coral-planting day, complete with gamelan music and snacks.",
+    options: [
+      { text: "Grab a hammer and become team leader, planting corals like a boss.", corals: ["elkhorn"] },
+      { text: "Arrange corals into smiley-face patterns, just for fun.", corals: ["soft"] },
+      { text: "Join in quietly, focused on one coral frame at a time.", corals: ["pillar"] },
+      { text: "Wander off to explore tide pools alone instead.", corals: ["mushroom"] }
+    ],
+    id: 4
+  },
+  {
+    question: "5) A dive boat drops anchor smack on a coral bommie, shattering Porites like dropped pottery.",
+    options: [
+      { text: "Leap onto the boat and deliver a Shakespearean rant about mooring buoys.", corals: ["fire"] },
+      { text: "Help the crew move the anchor gently, teaching them along the way.", corals: ["elkhorn"] },
+      { text: "Take notes and submit a polite letter to the harbormaster.", corals: ["brain"] },
+      { text: "Dive down and silently prop up the corals without saying a word.", corals: ["pillar"] }
+    ],
+    id: 5
+  },
+  {
+    question: "6) Friends at the beach laugh: 'Corals are doomed anyway, so let's grill fish and forget it.'",
+    options: [
+      { text: "Show inspiring reef-restoration videos to give hope.", corals: ["table"] },
+      { text: "Sketch a cartoon reef uprising where corals overthrow humans.", corals: ["soft"] },
+      { text: "Sip your coconut in silence and stare at the horizon.", corals: ["mushroom"] },
+      { text: "Shout: 'THE OCEAN WILL RISE AND SWALLOW YOUR GRILL!'", corals: ["fire"] }
+    ],
+    id: 6
+  },
+  {
+    question: "7) A leaking tanker turns the sea rainbow-black. Flying fish are slip-n-sliding like bumper cars.",
+    options: [
+      { text: "Rally villagers to collect hair, leaves, and even coconuts to mop up the oil.", corals: ["elkhorn"] },
+      { text: "Climb the ship mast and declare yourself 'Captain Cleanup.'", corals: ["fire"] },
+      { text: "Analyze the currents, planning where to deploy booms for maximum effect.", corals: ["brain"] },
+      { text: "Paint the oil drums with murals so people never forget.", corals: ["soft"] }
+    ],
+    id: 7
+  },
+  {
+    question: "8) The community holds a 'Trash Alchemy Day,' where waste must be turned into something useful.",
+    options: [
+      { text: "Weave plastic strips into stylish tote bags.", corals: ["table"] },
+      { text: "Glue bottle caps into a coral-shaped mosaic.", corals: ["soft"] },
+      { text: "Build a compost pile and explain nutrient cycles with wild hand gestures.", corals: ["brain"] },
+      { text: "Sneak off to nap under a mangrove tree cause where got time.", corals: ["mushroom"] }
+    ],
+    id: 8
+  },
+  {
+    question: "9) A massive ghost fishing net drifts like a sea monster, trapping unlucky parrotfish.",
+    options: [
+      { text: "Rally your dive buddies and cut the net piece by piece.", corals: ["elkhorn"] },
+      { text: "Work silently and tirelessly until every fish is freed.", corals: ["pillar"] },
+      { text: "Haul the net up and dramatically set it on fire (on land).", corals: ["fire"] },
+      { text: "Reuse the net to crochet hammocks for the community.", corals: ["soft"] }
+    ],
+    id: 9
+  },
+  {
+    question: "10) Les Village holds a wacky eco-festival: people strut the runway in costumes made of recycled materials shaped like corals. What role do you play?",
+    options: [
+      { text: "Dress up as a flamboyant Sea Fan with swishing fabric.", corals: ["soft"] },
+      { text: "Help everyone coordinate their outfits backstage.", corals: ["branch"] },
+      { text: "Design a clever outfit that educates about coral bleaching.", corals: ["table"] },
+      { text: "Sit in the audience, clapping politely while enjoying popcorn.", corals: ["mushroom"] }
+    ],
+    id: 10
+  }
+];
+
   
 
 
@@ -157,7 +149,7 @@ function renderQuestion() {
 
     questionText.textContent = currentQ.question;
     optionsContainer.innerHTML = "";
-    questionImage.src = "assets/placeholder.jpeg"
+    questionImage.src = "assets/score_cards/scenario" + currentQ.id + ".png";
   
     currentQ.options.forEach((opt, i) => {
       const btn = document.createElement("button");

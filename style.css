@@ -8,6 +8,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family:"Funnel Sans";
+
 /*
     background-image: url('assets/coral_background.jpg');
     background-size: cover;      
@@ -27,10 +29,8 @@ body {
 }
 
 #main-text {
-    font-size: 5em;
-    
-    /* font-family: ; */
-    color: aquamarine;
+    font-size: 6.5em;
+    color: #ffe6e6;
 }
 
 #landing-screen,
@@ -41,6 +41,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 #result-section {
     font-size: 2em;
@@ -76,14 +77,14 @@ body {
   border: 2px solid #ff9999;
   border-radius: 12px;
   padding: 10px 16px;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #333;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   width: 90%; /* fills nicely on mobile */
   max-width: 20em; /* doesn't get too wide on desktop */
-  margin: 0.5rem auto
+  margin: 0.3rem auto
 }
 
 #start-btn {
@@ -93,8 +94,15 @@ body {
     padding: 10px 16px;
     font-size: 1rem;
     font-weight: 600;
-    color: #333;
+    width: 500px;
+    color: #ff9999;
     cursor: pointer;
+
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    /* Add padding or fixed height/width as needed */
+
     transition: all 0.2s ease-in-out;
 }
 
