@@ -226,7 +226,7 @@ shareButton.addEventListener('click', async () => {
     try {
       await navigator.share({
         title: "Coral Personality Quiz",
-        text: "Look I'm a " +  finalType + " coral.\nTry the Coral Personality quiz and see if we're friends or enemies!",
+        text: "Look I'm a " +  finalType + " coral!!\nTry the Coral Personality quiz and see if we're friends or enemies!",
         url: "" // Or your specific results URL
       });
       // Optionally, thank the user or log analytics here
