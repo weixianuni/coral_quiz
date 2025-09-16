@@ -143,12 +143,12 @@ a {
     font-size: 2em;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #main-text {
         font-size: 3em; /* larger on desktop */
     }
     #question-text {
-        max-width: fit-content;
+        max-width: 90vw;
         font-size: 1em;
     }
     
