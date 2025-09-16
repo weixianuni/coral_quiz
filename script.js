@@ -1,6 +1,7 @@
 // plate coral, branch coral, 
 
 let currentQuestion = 0;
+let finalType = "";
 
 const scores = {
     "branch": 0,
@@ -21,16 +22,17 @@ const resultSection = document.getElementById('result-section');
 const questionText = document.getElementById('question-text');
 const questionImage = document.getElementById('question-image')
 const optionsContainer = document.getElementById('options-container');
-const resultName = document.getElementById('result-name');
 const resultImage = document.getElementById('result-image');
 const restartBtn = document.getElementById('restart-btn');
+const shareButton = document.getElementById('share-btn');
+
 
 let currentQuestionIndex = 0;
 let answers = [];
 
 const questions = [
   {
-    question: "1) A tourist in neon-pink flippers is river-dancing on fragile staghorn corals, humming 'Baby Shark.' What do you do?",
+    question: "1) A tourist in flippers is river-dancing on fragile staghorn corals, humming 'Baby Shark.' What do you do?",
     options: [
       { text: "Tell them off politely, like a patient teacher.", corals: ["brain"] },
       { text: "Ignore it, drifting away with zen detachment.", corals: ["mushroom"] },
@@ -40,7 +42,7 @@ const questions = [
     id: 1
   },
   {
-    question: "2) A giant plastic chair floats by like Poseidon's abandoned furniture. A turtle eyes it suspiciously. How do you react?",
+    question: "2) A giant washing machine floats by like Poseidon's abandoned furniture. A turtle eyes it suspiciously. How do you react?",
     options: [
       { text: "Scoop it up silently and sit on it like an ocean monarch.", corals: ["pillar"] },
       { text: "Drag it ashore and repaint it as funky art.", corals: ["soft"] },
@@ -149,7 +151,7 @@ function renderQuestion() {
 
     questionText.textContent = currentQ.question;
     optionsContainer.innerHTML = "";
-    questionImage.src = "assets/score_cards/scenario" + currentQ.id + ".png";
+    questionImage.src = "assets/question_images/scenario" + currentQ.id + ".png";
   
     currentQ.options.forEach((opt, i) => {
       const btn = document.createElement("button");
@@ -191,8 +193,8 @@ function calculateResult() {
 
 function showResult() {
     const coralType = calculateResult();
+    finalType = coralType;
 
-    resultName.textContent = coralType;
     const descriptions = {
         "branch": "You are outgoing and a natural leader, always reaching out and connecting with others. You thrive in lively environments and love to grow fast.",
         "brain": "You are thoughtful and wise, a deep thinker who values stability and problem-solving. Others look to you for guidance and calm in turbulent times.",
@@ -206,22 +208,7 @@ function showResult() {
         "soft": "You are flexible and empathetic, flowing with change while maintaining your core values. You are the peaceful glue in any group."
     };
 
-    /*
-      const descriptions = {
-        "staghorn": "Ambitious Go-Getter",
-        "elkhorn": "Reliable Supporter",
-        "finger": "Friendly Networker",
-        "mushroom": "Independent Scholar",
-        "brain": "Analytical Thinker",
-        "carnation": "Visionary Idealist",
-        "sea fan": "Social Butterfly",
-        "sun": "Optimistic Motivator",
-        "sea whip": "Adventurous Spirit",
-        "organ pipe": "Organized Planner"
-      };
-    */
-
-    resultImage.src = `assets/placeholder.jpeg`;
+    resultImage.src = "assets/score_cards/" + coralType + ".png";
     resultImage.alt = coralType;
 
     resultSection.style.display = "flex";
@@ -233,9 +220,22 @@ startBtn.onclick = () => {
     renderQuestion();
 };
   
-restartBtn.onclick = () => {
-    currentQuestionIndex = 0;
-    answers = [];
-    resultSection.style.display = "none";
-    landingScreen.style.display = "flex";
-};
+
+shareButton.addEventListener('click', async () => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Coral Personality Quiz",
+        text: "Look I'm a " +  finalType + "coral. Try the Coral Personality quiz and see if we're friends or enemies!",
+        url: "" // Or your specific results URL
+      });
+      // Optionally, thank the user or log analytics here
+    } catch (err) {
+      // Optionally handle share errors
+      console.error('Error sharing:', err);
+    }
+  } else {
+    // Provide a fallback (e.g., copy link or show manual app share buttons)
+    alert('Sharing is not supported on this device or browser.');
+  }
+});
