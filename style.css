@@ -149,7 +149,7 @@ a {
     }
     #question-text {
         max-width: 90vw;
-        font-size: 1em;
+        font-size: 2em;
         word-wrap: break-word; /* allow breaking long words */
         white-space: normal;   /* allow normal wrapping */
         overflow-wrap: anywhere; 
